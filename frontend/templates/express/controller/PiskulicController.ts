@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { BaseController } from './BaseController';
+import { BaseController } from '../../../../backend/app/controllers/BaseController';
 
 export default class __ControllerName__Controller extends BaseController {
   constructor(req: Request, resp: Response, next: NextFunction) {
