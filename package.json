@@ -16,6 +16,7 @@
     "test": "yarn test"
   },
   "bin": {
-    "bpitest": "bin/bpitest.js"
+    "bpitest": "bin/bpitest.js",
+    "bpi": "bin/bpi.js"
   }
 }
