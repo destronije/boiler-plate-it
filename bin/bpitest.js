@@ -1,3 +1,5 @@
 #!/usr/bin/env node
+let asd = require('../lib/express/express');
+// let asd = require('../lib/express/generators/controller');
 
-console.log(__dirname);
+asd.init();

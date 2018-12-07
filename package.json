@@ -7,8 +7,10 @@
   "author": "Levi9",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^2.4.1",
     "edit-json-file": "^1.2.0",
     "inquirer": "^6.2.1",
+    "ncp": "^2.0.0",
     "shelljs": "^0.8.3"
   },
   "scripts": {
@@ -16,6 +18,8 @@
     "test": "yarn test"
   },
   "bin": {
-    "bpitest": "bin/bpitest.js"
+    "bpitest": "bin/bpitest.js",
+    "bpi": "bin/bpi.js",
+    "bpigenerator": "bin/bpigenerator.js"
   }
 }
