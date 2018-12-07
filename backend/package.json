@@ -10,9 +10,11 @@
     "start": "node ./dist",
     "prebuild": "yarn lint && rimraf ./dist",
     "build": "tsc",
+    "watch": "yarn build -w",
     "lint": "tslint --project tsconfig.json 'app/**/*.ts'"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4"
   },
   "devDependencies": {

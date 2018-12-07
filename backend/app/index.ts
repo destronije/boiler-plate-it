@@ -8,7 +8,7 @@ let app = Server.bootstrap().app;
 let httpServer = http.createServer(app);
 
 // listen on provided ports
-httpServer.listen(process.env.PORT);
+httpServer.listen(3000);
 
 httpServer.on('listening', onListening);
 
