@@ -19,6 +19,7 @@
   },
   "bin": {
     "bpitest": "bin/bpitest.js",
-    "bpi": "bin/bpi.js"
+    "bpi": "bin/bpi.js",
+    "bpigenerator": "bin/bpigenerator.js"
   }
 }
