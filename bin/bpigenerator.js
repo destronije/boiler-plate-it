@@ -11,7 +11,6 @@ for (let febetype in config) {
 
 let argvFramework = process.argv.find((argument) => argument.includes('-framework')).split('=')[1];
 let argvGenerator = process.argv.find((argument) => argument.includes('-generator')).split('=')[1];
-// console.log(argvFramework, argvGenerator);
 
 // search for framework
 let choosenFramework;
