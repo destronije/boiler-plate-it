@@ -1,0 +1,9 @@
+{
+  "name": "boiler-plate-it",
+  "version": "1.0.0",
+  "description": "Backend",
+  "main": "index.js",
+  "repository": "https://github.com/destronije/boiler-plate-it",
+  "author": "Levi9",
+  "license": "MIT"
+}
