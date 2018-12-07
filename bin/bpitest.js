@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-
-console.log(__dirname);
+let asd = require('../lib/express/express');
+asd.init();

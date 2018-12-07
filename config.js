@@ -7,17 +7,17 @@ const expressController = require('lib/express/generators/controller');
 module.export = {
   "frontend": {
     "react": {
-      "class": react.default,
+      "class": react,
       "generators": {
-        "reducer": reactReducer.default
+        "reducer": reactReducer
       }
     }
   },
   "backend": {
     "express": {
-      "class": express.default,
+      "class": express,
       "generators": {
-        "controller": expressController.default
+        "controller": expressController
       }
     }
   }
