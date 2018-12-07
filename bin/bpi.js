@@ -1,25 +1,36 @@
 #!/usr/bin/env node
 
+
 var config = require('./../config').config;
 var inquirer = require('inquirer');
 
 var choices = {
     packageManager: '',
-    applicationType: '',
-    framework: ''
+    unitTests: ''
 }
 
 async function startQuestioning() {
     var question = {
         type: 'list',
         name: 'name',
-        message: 'Which package manager do you want to use?',
+        message: 'Do you want to implement unit test for your project?',
         choices: [
             new inquirer.Separator(),
-            'npm',
-            'yarn'
+            'jest',
+            'none'
         ]
     }
+
+
+    let unitTests = await inquirer.prompt(question);
+    choices.unitTests = unitTests.name;
+
+    question.message = 'Which package manager do you want to use?';
+    question.choices = [
+        new inquirer.Separator(),
+        'npm',
+        'yarn'
+    ]
 
     let packageManager = await inquirer.prompt(question);
     choices.packageManager = packageManager.name;
@@ -32,8 +43,8 @@ async function startQuestioning() {
     ];
 
     let appType = await inquirer.prompt(question);
-    choices.applicationType = appType.name === 'I want to create frontend application' ? "frontendApp" : "backendApp";
-    if (choices.applicationType === "frontendApp") {
+
+    if (appType.name === 'I want to create frontend application') {
         question.message = 'Which framework do you want to use?';
         question.choices = [
             new inquirer.Separator(),
@@ -43,10 +54,9 @@ async function startQuestioning() {
             'React Native'
         ];
         let frameworkType = await inquirer.prompt(question);
-        choices.framework = frameworkType.name;
-        switch (choices.framework) {
+        switch (frameworkType.name) {
             case 'React': {
-                config.frontend.react.class.init();
+                config.frontend.react.class.init(choices);
                 break;
             }
             case 'Angular': {
@@ -66,10 +76,8 @@ async function startQuestioning() {
             }
         }
     } else {
-        console.log('You picked to create backend app')
-        config.backend.express.class.init();
+        config.backend.express.class.init(choices);
     }
-
 }
 
 startQuestioning();
