@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import { IndexController } from './controllers/IndexController';
+import * as fs from 'fs';
 
 export class Server {
 
@@ -27,7 +27,14 @@ export class Server {
   protected routes() {
     const router = express.Router();
 
-    IndexController.registerRoutes(router);
+    let controllers = fs.readdirSync(__dirname + '/controllers/');
+    for (let controllerFileName of controllers) {
+      if (controllerFileName === 'BaseController.js') continue;
+
+      let controller = require(`./controllers/${ controllerFileName }`).default;
+      console.log(controllerFileName);
+      controller.registerRoutes(router);
+    }
 
     this.app.use(router);
   }

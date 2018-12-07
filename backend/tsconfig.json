@@ -3,7 +3,7 @@
     "module": "commonjs",
     "lib": ["es2016", "dom"],
     "target": "es2016",
-    "sourceMap": true,
+    "sourceMap": false,
     "moduleResolution": "node",
     "outDir": "dist"
   },
