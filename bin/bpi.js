@@ -13,7 +13,7 @@ async function startQuestioning() {
     var question = {
         type: 'list',
         name: 'name',
-        message: 'Do you want to implement unit test for your project?',
+        message: 'Do you want to implement unit test in your project?',
         choices: [
             new inquirer.Separator(),
             'jest',
