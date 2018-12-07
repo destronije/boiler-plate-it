@@ -28,5 +28,7 @@ export class Server {
     const router = express.Router();
 
     IndexController.registerRoutes(router);
+
+    this.app.use(router);
   }
 }

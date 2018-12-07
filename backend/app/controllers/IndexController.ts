@@ -13,11 +13,10 @@ export class IndexController extends BaseController {
   }
 
   protected index() {
-    console.log('rutaaaaaaaaaaaaa');
     let body: object = {
       msg: 'Hello World'
     };
 
-    return this.response.send(body);
+    this.response.send(body);
   }
 }
