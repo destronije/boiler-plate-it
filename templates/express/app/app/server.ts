@@ -28,7 +28,8 @@ export class Server {
     const router = express.Router();
 
     let controllers = fs.readdirSync(__dirname + '/controllers/');
-    for (let controllerFileName of controllers) {
+    for (let controllerFileIndex in controllers) {
+      let controllerFileName = controllers[controllerFileIndex];
       if (controllerFileName === 'BaseController.js') continue;
 
       let controller = require(`./controllers/${ controllerFileName }`).default;
