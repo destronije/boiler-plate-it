@@ -5,5 +5,13 @@
   "main": "index.js",
   "repository": "https://github.com/destronije/boiler-plate-it",
   "author": "Levi9",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "edit-json-file": "^1.2.0",
+    "shelljs": "^0.8.3"
+  },
+  "scripts": {
+    "build": "yarn build",
+    "test": "yarn test"
+  }
 }
