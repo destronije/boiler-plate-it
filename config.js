@@ -43,7 +43,7 @@ exports.config = {
         "vue": {
             "class": vue,
             "generators": {
-                "reducer": vueController
+                "controller": vueController
             }
         }
     },
