@@ -1,5 +1,6 @@
 const react = require('./lib/react/react');
 const reactReducer = require('./lib/react/generators/reducer');
+const reactComponent = require('./lib/react/generators/component');
 
 const express = require('./lib/express/express');
 const expressController = require('./lib/express/generators/controller');
@@ -9,7 +10,8 @@ exports.config = {
     "react": {
       "class": react,
       "generators": {
-        "reducer": reactReducer
+        "reducer": reactReducer,
+        "component": reactComponent
       }
     }
   },
