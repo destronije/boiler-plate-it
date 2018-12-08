@@ -2,3 +2,4 @@
 node_modules
 templates/**/yarn.lock
 templates/**/package-lock.json
+dist
