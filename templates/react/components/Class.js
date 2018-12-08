@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './__COMPONENT_NAME__.css';
 
 class __COMPONENT_NAME__ extends Component {
   render() {
