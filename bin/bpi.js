@@ -16,8 +16,9 @@ async function startQuestioning() {
         message: 'Do you want to implement unit test in your project?',
         choices: [
             new inquirer.Separator(),
-            'jest',
-            'none'
+            'none',
+            'jest'
+
         ]
     }
 
