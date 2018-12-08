@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-
-
 var config = require('./../config').config;
+var setup = require('./../config').setup;
 var inquirer = require('inquirer');
 
 var choices = {
@@ -13,71 +12,70 @@ async function startQuestioning() {
     var question = {
         type: 'list',
         name: 'name',
-        message: 'Do you want to implement unit test in your project?',
-        choices: [
-            new inquirer.Separator(),
-            'none',
-            'jest'
-
-        ]
+        message: setup.basic.first.question,
+        choices: setup.basic.first.answers
     }
-
 
     let unitTests = await inquirer.prompt(question);
     choices.unitTests = unitTests.name;
 
-    question.message = 'Which package manager do you want to use?';
-    question.choices = [
-        new inquirer.Separator(),
-        'npm',
-        'yarn'
-    ]
+    question.message = setup.basic.second.question;
+    question.choices = setup.basic.second.answers;
 
     let packageManager = await inquirer.prompt(question);
     choices.packageManager = packageManager.name;
 
-    question.message = 'Do you want to create frontend or backend application?';
-    question.choices = [
-        new inquirer.Separator(),
-        'I want to create frontend application',
-        'I want to create backend application'
-    ];
+    question.message = setup.basic.third.question;
+    question.choices = setup.basic.third.answers;
 
     let appType = await inquirer.prompt(question);
 
-    if (appType.name === 'I want to create frontend application') {
-        question.message = 'Which framework do you want to use?';
-        question.choices = [
-            new inquirer.Separator(),
-            'React',
-            'Angular',
-            'Vue',
-            'React Native'
-        ];
-        let frameworkType = await inquirer.prompt(question);
-        switch (frameworkType.name) {
-            case 'React': {
+    if (appType.name === setup.basic.third.answers[1]) {
+        question.message = setup.frontend.first.question;
+        question.choices = setup.frontend.first.answers;
+
+        let frontendFramework = await inquirer.prompt(question);
+        switch (frontendFramework.name) {
+            case 'react': {
                 config.frontend.react.class.init(choices);
                 break;
             }
-            case 'Angular': {
-                console.log('you picked Angular');
+            case 'angular': {
+                config.frontend.angular.class.init(choices);
                 break;
             }
-            case 'Vue': {
-                console.log('you picked Vue');
+            case 'vue': {
+                config.frontend.vue.class.init(choices);
                 break;
             }
-            case 'React Native': {
-                console.log('you picked React Native');
+            case 'react-native': {
+                config.frontend.reactnative.class.init(choices);
                 break;
             }
             default: {
-                console.log("Error");
+                console.log("Error, wrong frontend framework");
             }
         }
     } else {
-        config.backend.express.class.init(choices);
+
+        question.message = setup.backend.first.question;
+        question.choices = setup.backend.first.answers;
+
+        let backendFramwork = await inquirer.prompt(question);
+        switch (backendFramwork.name) {
+            case 'express': {
+                config.backend.express.class.init(choices);
+                break;
+            }
+            case 'nestJS': {
+                config.backend.nestJS.class.init(choices);
+                break;
+            }
+            default: {
+                console.log('Error, wrong backend framework');
+            }
+        }
+
     }
 }
 
